@@ -26,7 +26,7 @@ class AsyncTest {
 
   public static CompletableFuture<Option<Ceo>> getCeoById(String ceo_id) {
 
-CompletableFuture<Option<Ceo>> completableFuture = new CompletableFuture<Option<Ceo>>();
+    CompletableFuture<Option<Ceo>> completableFuture = new CompletableFuture<Option<Ceo>>();
 
     for (Ceo ceo : ceos) {
 			if (ceo.id.equals(ceo_id)) {
@@ -40,7 +40,7 @@ CompletableFuture<Option<Ceo>> completableFuture = new CompletableFuture<Option<
 
   public static CompletableFuture<Option<Enterprise>> getEnterpriseByCeoId(String ceo_id) {
 
-CompletableFuture<Option<Enterprise>> completableFuture = new CompletableFuture<Option<Enterprise>>();
+    CompletableFuture<Option<Enterprise>> completableFuture = new CompletableFuture<Option<Enterprise>>();
 
     for (Enterprise enterprise : enterprises) {
 			if (enterprise.ceo_id.equals(ceo_id)) {
@@ -58,7 +58,7 @@ CompletableFuture<Option<Enterprise>> completableFuture = new CompletableFuture<
     // I used the function getCeoById and getEnterpriseByCeoId
     Tuple2<Option<Ceo>, Option<Enterprise>> myTuple = Tuple.of(getCeoById(ceo_id).get(),getEnterpriseByCeoId(ceo_id).get()); 
 		completableFuture.complete(myTuple) ;
-    
+
     return completableFuture;
   }
 
